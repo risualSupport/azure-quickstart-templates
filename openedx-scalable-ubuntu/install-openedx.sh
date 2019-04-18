@@ -13,7 +13,7 @@ EDX_VERSION="open-release/ironwood.master"
 
 # Run edX bootstrap
 ANSIBLE_ROOT=/edx/app/edx_ansible
-CONFIGURATION_REPO=https://github.com/risualSupport/configuration.git
+CONFIGURATION_REPO="https://github.com/risualSupport/configuration.git"
 CONFIGURATION_VERSION="open-release/ironwood.master"
 wget https://raw.githubusercontent.com/risualSupport/configuration/master/util/install/ansible-bootstrap.sh -O- | bash
 
