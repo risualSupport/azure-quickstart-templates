@@ -67,6 +67,8 @@ cd configuration
 git checkout $CONFIGURATION_VERSION
 pip install -r requirements.txt
 
+wget  -O /edx/app/edx_ansible/ "https://raw.githubusercontent.com/risualSupport/azure-quickstart-templates/master/openedx-scalable-ubuntu/server-vars.yml"
+
 cd playbooks
 export ANSIBLE_OPT_VARS="-e@$ANSIBLE_ROOT/server-vars.yml -e@$ANSIBLE_ROOT/extra-vars.yml"
 export ANSIBLE_OPT_SSH="-u $ADMIN_USER --private-key=$ADMIN_HOME/.ssh/id_rsa"
