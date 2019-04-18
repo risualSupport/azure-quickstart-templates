@@ -9,7 +9,7 @@ ADMIN_USER=$2
 ADMIN_PASS=$3
 ADMIN_HOME=/home/$ADMIN_USER
 
-EDX_VERSION="named-release/dogwood.rc"
+EDX_VERSION="open-release/ironwood.master"
 
 # Run edX bootstrap
 ANSIBLE_ROOT=/edx/app/edx_ansible
