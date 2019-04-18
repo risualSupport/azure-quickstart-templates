@@ -77,8 +77,8 @@ rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 sudo ansible-playbook edx_mysql.yml -i "openedx-mysql," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
-sudo ansible-playbook edx_sandbox.yml -i "localhost," -c local $ANSIBLE_OPT_VARS -e "migrate_db=yes"
+sudo ansible-playbook edx-stateless.yml -i "localhost," -c local $ANSIBLE_OPT_VARS -e "migrate_db=yes"
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
-sudo ansible-playbook edx_sandbox.yml -i $ANSIBLE_ROOT/inventory.ini $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS --limit app
+sudo ansible-playbook edx-stateless.yml -i $ANSIBLE_ROOT/inventory.ini $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS --limit app
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
