@@ -71,14 +71,14 @@ cd playbooks
 export ANSIBLE_OPT_VARS="-e/tmp/configuration/playbooks/server-vars.yml -e/tmp/configuration/playbooks/extra-vars.yml"
 export ANSIBLE_OPT_SSH="-u $ADMIN_USER --private-key=$ADMIN_HOME/.ssh/id_rsa"
 
-sudo ansible-playbook edx_mongo.yml -i "openedx-mongo," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
+sudo ansible-playbook edx_mongo.yml -u openedxuser -i "openedx-mongo," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
-sudo ansible-playbook edx_mysql.yml -i "openedx-mysql," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
+sudo ansible-playbook edx_mysql.yml -u openedxuser -i "openedx-mysql," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
-sudo ansible-playbook edx-stateless.yml -i "localhost," -c local $ANSIBLE_OPT_VARS -e "migrate_db=yes"
+sudo ansible-playbook edx-stateless.yml -u openedxuser -i "localhost," -c local $ANSIBLE_OPT_VARS -e "migrate_db=yes"
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
-sudo ansible-playbook edx-stateless.yml -i $ANSIBLE_ROOT/inventory.ini $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS --limit app
+sudo ansible-playbook edx-stateless.yml -u openedxuser -i $ANSIBLE_ROOT/inventory.ini $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS --limit app
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
