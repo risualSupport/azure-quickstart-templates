@@ -62,3 +62,6 @@ EDXAPP_MEMCACHE: ["openedx-mysql:11211"]
 MONGO_BIND_IP: "0.0.0.0"
 FORUM_MONGO_HOSTS: ["openedx-mongo"]
 EDXAPP_MONGO_HOSTS: ["openedx-mongo"]
+
+EDXAPP_LMS_SEGMENT_KEY: "None"
+EDXAPP_CMS_SEGMENT_KEY: "None"
