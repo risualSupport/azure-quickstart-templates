@@ -68,7 +68,7 @@ git checkout $CONFIGURATION_VERSION
 pip install -r requirements.txt
 
 cd playbooks
-export ANSIBLE_OPT_VARS="-e/tmp/configuration/playbooks/server-vars.yml -e/tmp/configuration/playbooks/extra-vars.yml"
+export ANSIBLE_OPT_VARS="-e@$ANSIBLE_ROOT/server-vars.yml -e@$ANSIBLE_ROOT/extra-vars.yml"
 export ANSIBLE_OPT_SSH="-u $ADMIN_USER --private-key=$ADMIN_HOME/.ssh/id_rsa"
 
 sudo ansible-playbook edx_mongo.yml -u openedxuser -i "openedx-mongo," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
