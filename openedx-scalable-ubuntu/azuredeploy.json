@@ -113,7 +113,7 @@
     "availabilitySetName": "avail-set",
     "osImagePublisher": "Canonical",
     "osImageOffer": "UbuntuServer",
-    "osImageSKU": "18.04-LTS",
+    "osImageSKU": "16.04-LTS",
     "appVmName": "openedx-app",
     "mySqlVmName": "openedx-mysql",
     "mongoVmName": "openedx-mongo",
