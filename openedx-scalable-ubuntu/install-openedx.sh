@@ -21,6 +21,9 @@ wget https://raw.githubusercontent.com/risualSupport/configuration/open-release/
 PLATFORM_REPO=https://github.com/edx/edx-platform.git
 PLATFORM_VERSION=$EDX_VERSION
 
+wget https://raw.githubusercontent.com/risualSupport/azure-quickstart-templates/master/openedx-scalable-ubuntu/mysql.sh
+cp mysql.sh $ANSIBLE_ROOT
+
 wget https://raw.githubusercontent.com/edx/configuration/$EDX_VERSION/util/install/generate-passwords.sh -O - | bash
 
 for i in `seq 1 $(($APP_VM_COUNT-1))`; do
