@@ -6,7 +6,7 @@ echo "Updated mysql bind address in /etc/mysql/mysql.conf.d/mysqld.cnf to 0.0.0.
 
 echo "Assigning mysql user root + migrate access on %."
 sudo mysql --execute "GRANT ALL PRIVILEGES ON *.* TO root@'%'; FLUSH PRIVILEGES;"
-sudo mysql --execute "GRANT ALL PRIVILEGES ON *.* TO migrate@'%'; FLUSH PRIVILEGES;"
+sudo mysql --execute "GRANT ALL PRIVILEGES ON *.* TO migrate@'%' IDENTIFIED BY 'lZsQuPAepY0sOrcpHdGKgXDokPrBbv5PtGd'; FLUSH PRIVILEGES;"
 echo "Assigned mysql user root access on all hosts."
 
 echo "Adding Firewall Rule"
