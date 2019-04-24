@@ -45,6 +45,8 @@ EOF"
 cp *.{ini,yml} $ANSIBLE_ROOT
 chown edx-ansible:edx-ansible $ANSIBLE_ROOT/*.{ini,yml}
 
+MigratePW1=$(grep -n "COMMON_MYSQL_MIGRATE_PASS:" $ANSIBLE_ROOT/my-passwords.yml | cut -d "'" -f2)
+sudo sed -i "s/MIGRATEPASS/$MigratePW1/g" "$ANSIBLE_ROOT/mysql.sh"
 
 # Setup SSH for remote installation
 apt-get -y install sshpass
