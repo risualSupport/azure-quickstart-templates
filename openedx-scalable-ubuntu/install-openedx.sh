@@ -21,6 +21,8 @@ wget https://raw.githubusercontent.com/risualSupport/configuration/open-release/
 PLATFORM_REPO=https://github.com/edx/edx-platform.git
 PLATFORM_VERSION=$EDX_VERSION
 
+wget https://raw.githubusercontent.com/edx/configuration/$EDX_VERSION/util/install/generate-passwords.sh -O - | bash
+
 for i in `seq 1 $(($APP_VM_COUNT-1))`; do
   echo "openedx-app$i" >> inventory.ini
 done
@@ -68,7 +70,7 @@ git checkout $CONFIGURATION_VERSION
 pip install -r requirements.txt
 
 cd playbooks
-export ANSIBLE_OPT_VARS="-e@$ANSIBLE_ROOT/server-vars.yml -e@$ANSIBLE_ROOT/extra-vars.yml"
+export ANSIBLE_OPT_VARS="-e@$ANSIBLE_ROOT/config.yml -e@$ANSIBLE_ROOT/extra-vars.yml -e@$ANSIBLE_ROOT/my-passwords.yml"
 export ANSIBLE_OPT_SSH="-u $ADMIN_USER --private-key=$ADMIN_HOME/.ssh/id_rsa"
 
 sudo ansible-playbook edx_mongo.yml -u openedxuser -i "openedx-mongo," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
