@@ -2,7 +2,7 @@
 
 New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new resource group for your deployment
     
-New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://github.com/risualSupport/azure-quickstart-templates/blob/master/openedx-scalable-ubuntu/azuredeploy.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://github.com/risualSupport/azure-quickstart-templates/blob/master/openedx-scalable-ubuntu/azuredeploy.json
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fopenedx-scalable-ubuntu%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
