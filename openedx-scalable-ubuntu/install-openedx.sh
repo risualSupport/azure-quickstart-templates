@@ -23,6 +23,7 @@ PLATFORM_VERSION=$EDX_VERSION
 
 wget https://raw.githubusercontent.com/risualSupport/azure-quickstart-templates/master/openedx-scalable-ubuntu/mysql.sh
 cp mysql.sh $ANSIBLE_ROOT
+chown edx-ansible:edx-ansible $ANSIBLE_ROOT/mysql.sh
 
 wget https://raw.githubusercontent.com/edx/configuration/$EDX_VERSION/util/install/generate-passwords.sh -O - | bash
 
