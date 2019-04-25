@@ -47,8 +47,10 @@ chown edx-ansible:edx-ansible $ANSIBLE_ROOT/*.{ini,yml}
 
 MigratePW1=$(grep -n "COMMON_MYSQL_MIGRATE_PASS:" $ANSIBLE_ROOT/my-passwords.yml | cut -d "'" -f2)
 EDXAPP001PW=$(grep -n "EDXAPP_MYSQL_PASSWORD:" $ANSIBLE_ROOT/my-passwords.yml | cut -d "'" -f2)
+xqueue001PW=$(grep -n "XQUEUE_MYSQL_PASSWORD:" $ANSIBLE_ROOT/my-passwords.yml | cut -d "'" -f2)
 sudo sed -i "s/MIGRATEPASS/$MigratePW1/g" "$ANSIBLE_ROOT/mysql.sh"
 sudo sed -i "s/EDXAPPPASS/$EDXAPP001PW/g" "$ANSIBLE_ROOT/mysql.sh"
+sudo sed -i "s/XQUEUEPASS/$xqueue001PW/g" "$ANSIBLE_ROOT/mysql.sh"
 
 # Setup SSH for remote installation
 apt-get -y install sshpass
